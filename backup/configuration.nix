@@ -187,8 +187,7 @@
       LC_PAPER          = "zh_CN.UTF-8";
       LC_TELEPHONE      = "zh_CN.UTF-8";
       LC_TIME           = "zh_CN.UTF-8";
-      # 终端输出保持英文，便于排查错误
-      LC_MESSAGES       = "en_US.UTF-8";
+      LC_MESSAGES       = "zh_CN.UTF-8";
     };
   };
 
