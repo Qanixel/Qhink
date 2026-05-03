@@ -32,13 +32,6 @@
   # 主机名
   networking.hostName = "qhink";
 
-  # 临时
-  services = {
-  displayManager.gdm.enable = true;
-  desktopManager.gnome.enable = true;
-  }
-
-
   # 系统版本标记
   system.stateVersion = "25.05";
 }

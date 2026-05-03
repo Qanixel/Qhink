@@ -25,5 +25,11 @@
     };
   };
 
+  # 桌面环境配置 (临时)
+  services = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+  };
+
   programs.home-manager.enable = true;
 }
