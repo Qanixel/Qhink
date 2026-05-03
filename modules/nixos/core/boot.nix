@@ -11,7 +11,7 @@
       efi.canTouchEfiVariables = true;
     };
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
 
     kernelParams = [
       "nvidia-drm.modeset=1"
@@ -21,7 +21,7 @@
       "splash"
     ];
 
-    initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+    # initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
     kernelModules = [ "kvm-intel" ];
   };
 }

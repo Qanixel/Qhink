@@ -8,9 +8,10 @@
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       inter
-      (nerdfonts.override { fonts = [ "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
     ];
 
     fontconfig = {
