@@ -40,6 +40,5 @@
     nvtopPackages.nvidia vulkan-tools
     gcc gnumake cmake python3 nodejs
     brightnessctl playerctl libnotify grim slurp swappy
-    nil
   ];
 }
