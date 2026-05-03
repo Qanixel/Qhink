@@ -18,6 +18,7 @@
 
     # 桌面环境与字体
     ../../modules/nixos/desktop/fonts.nix
+    ../../modules/nixos/desktop/temporary.nix
 
     # 国际化与输入法
     ../../modules/nixos/i18n/locale.nix

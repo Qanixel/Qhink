@@ -8,6 +8,6 @@
     printing.enable = false;
     udev.enable = true;
     gvfs.enable = true;
-    # gnome.gnome-keyring.enable = true;
+    gnome.gnome-keyring.enable = true;
   };
 }
