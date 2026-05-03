@@ -1,5 +1,5 @@
 # NixOS 模块化配置文件
-# qhink | qanix | Intel + RTX 5060 Ti + Niri + 中文环境
+# qhink | qanix | Intel + RTX 5060 Ti + 中文环境
 
 本配置已根据最新的模块化理念进行重构，将系统配置与用户配置进行解耦，方便维护和扩展。
 
@@ -17,13 +17,13 @@
 │   ├── nixos/                # NixOS 系统级模块
 │   │   ├── core/             # 核心配置（Nix, Boot, Users, Env）
 │   │   ├── hardware/         # 硬件驱动（Nvidia, Audio, BT）
-│   │   ├── desktop/          # 桌面环境（Niri, Fonts）
+│   │   ├── desktop/          # 桌面环境（Fonts）
 │   │   ├── i18n/             # 国际化（Locale, Input Method）
 │   │   └── services/         # 系统服务（Network, SSH）
 │   └── home/                 # Home Manager 用户级模块
 │       ├── core/             # 基础（Shell, Packages, XDG）
 │       ├── apps/             # 应用程序（VSCode, Ghostty, Git）
-│       └── desktop/          # 桌面应用（Niri, Waybar, Mako, Fuzzel）
+│       └── desktop/          # 桌面应用（Waybar, Mako, Fuzzel）
 └── backup/                   # 旧配置备份
 ```
 
@@ -70,12 +70,12 @@ nixos-install --flake .#qhink
 - **中文环境**：全系统简体中文，Fcitx5 输入法（含维基百科词库）。
 - **字体优化**：使用 Maple Mono (Nerd Font) 作为默认等宽字体，Noto CJK 系列解决中日文字形冲突。
 - **最新驱动**：支持 RTX 5060 Ti (Blackwell) 的最新 NVIDIA 驱动。
-- **现代桌面**：基于 Niri (Wayland) 的平铺式桌面，配套 Ghostty、Waybar、Mako 等。
+- **现代桌面**：配套 Ghostty、Waybar、Mako 等。
 
 ---
 
 ## 注意事项
 
-1. **显示器标识符**：请运行 `niri msg outputs` 并更新 `modules/home/desktop/niri.nix` 中的输出名称（默认为 `DP-1`）。
+1. **显示器标识符**：请根据您的窗口管理器配置相应的输出名称。
 2. **初始密码**：初始密码为 `xqapp`，登录后请立即修改。
 3. **备份**：原始的单体配置文件已移动到 `backup/` 文件夹。

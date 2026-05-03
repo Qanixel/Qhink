@@ -17,7 +17,6 @@
     ../../modules/nixos/hardware/bluetooth.nix
 
     # 桌面环境与字体
-    ../../modules/nixos/desktop/niri.nix
     ../../modules/nixos/desktop/fonts.nix
 
     # 国际化与输入法

@@ -8,7 +8,6 @@
     ../../modules/home/apps/ghostty.nix
     ../../modules/home/apps/vscode.nix
     ../../modules/home/apps/git.nix
-    ../../modules/home/desktop/niri.nix
     ../../modules/home/desktop/waybar.nix
     ../../modules/home/desktop/mako.nix
     ../../modules/home/desktop/fuzzel.nix
