@@ -10,8 +10,7 @@
         qt6Packages.fcitx5-chinese-addons
         fcitx5-pinyin-zhwiki
         fcitx5-gtk
-        fcitx5-qt
-        fcitx5-configtool
+        qt6Packages.fcitx5-configtool
       ];
     };
   };

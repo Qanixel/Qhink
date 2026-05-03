@@ -3,8 +3,8 @@
 {
   fonts = {
     packages = with pkgs; [
-      maple-mono
-      maple-mono-NF
+      maple-mono.CN
+      maple-mono.NF
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif

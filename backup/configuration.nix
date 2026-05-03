@@ -250,8 +250,8 @@
     # 预装字体包
     packages = with pkgs; [
       # ── 编程字体 ──
-      maple-mono           # Maple Mono：同时支持 ASCII 和中文的编程字体
-      maple-mono-NF        # Nerd Font 版本（终端图标支持）
+      maple-mono.CN           # Maple Mono：同时支持 ASCII 和中文的编程字体
+      maple-mono.NF        # Nerd Font 版本（终端图标支持）
 
       # ── 中文字体 ──
       noto-fonts           # Noto Sans / Serif（无豆腐块方案）
