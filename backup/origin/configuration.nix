@@ -234,7 +234,7 @@
       waylandFrontend = true; # 启用原生 Wayland 前端（比 XIM 更稳定）
 
       addons = with pkgs; [
-        fcitx5-chinese-addons    # 拼音、五笔等中文输入法套件
+        qt6Packages.fcitx5-chinese-addons    # 拼音、五笔等中文输入法套件
         fcitx5-pinyin-zhwiki     # 基于中文维基百科的超大词库（约 40 万词条）
         fcitx5-gtk               # GTK im module（GTK 应用集成）
         fcitx5-qt                # Qt im module（Qt/KDE 应用集成）

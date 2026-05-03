@@ -8,12 +8,12 @@
     height = 120;
     margin = "12";
     padding = "12,16";
-    background-color = "#1e1e2e";
-    text-color = "#cdd6f4";
-    border-color = "#89b4fa";
-    border-radius = 8;
-    border-size = 1;
+    backgroundColor = "#1e1e2e";
+    textColor = "#cdd6f4";
+    borderColor = "#89b4fa";
+    borderRadius = 8;
+    borderSize = 1;
     font = "Maple Mono NF 12";
-    default-timeout = 5000;
+    defaultTimeout = 5000;
   };
 }
