@@ -4,11 +4,11 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode;
-    
-    # 强制声明式管理插件，禁止手动安装
-    mutableExtensions = false;
 
     extensions = with pkgs.vscode-extensions; [
+
+      ms-ceintl.vscode-language-pack-zh-hans
+      
       # 语言基础
       ms-ceintl.vscode-language-pack-zh-hans
       ms-python.python

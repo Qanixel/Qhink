@@ -3,7 +3,6 @@
 {
   programs.helix = {
     enable = true;
-    defaultEditor = true; # 替代 nano/vi 成为默认编辑器
     
     settings = {
       theme = "catppuccin_mocha"; # 保持与 VSCode 和 Ghostty 一致

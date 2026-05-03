@@ -26,8 +26,8 @@
     homeDirectory = "/home/qanix";
     stateVersion = "25.05";
     sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      EDITOR = "hx";
+      VISUAL = "hx";
       PAGER = "less";
       HISTFILE = "$HOME/.zsh_history";
     };

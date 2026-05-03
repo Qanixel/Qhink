@@ -6,7 +6,7 @@
     userName = "qanix";
     userEmail = "qanix@qhink.local";
     extraConfig = {
-      core = { editor = "nvim"; pager = "delta"; autocrlf = "input"; };
+      core = { editor = "hx"; pager = "delta"; autocrlf = "input"; };
       init.defaultBranch = "main";
       pull.rebase = false;
       push.autoSetupRemote = true;

@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   programs.zsh = {
@@ -45,8 +45,8 @@
       nfu   = "nix flake update";
       ngc   = "sudo nix-collect-garbage -d";
       nse   = "nix search nixpkgs";
-      v     = "nvim";
-      vi    = "nvim";
+      v     = "hx";
+      vi    = "hx";
     };
 
     initExtra = ''
