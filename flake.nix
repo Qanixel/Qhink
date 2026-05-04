@@ -15,33 +15,49 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, noctalia, ... }@inputs:
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
   let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
+    lib = nixpkgs.lib;
+    systems = [ "x86_64-linux" ];
+    forAllSystems = lib.genAttrs systems;
+
+    pkgsFor = system: import nixpkgs {
       inherit system;
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate = _: true;
-      };
+      config.allowUnfree = true;
     };
+
+    user = "qanix";
   in
   {
-    nixosConfigurations.qhink = nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/qhink/default.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            extraSpecialArgs = { inherit inputs; };
-            users.qanix = import ./hosts/qhink/home.nix;
-          };
-        }
-      ];
+    formatter = forAllSystems (system:
+      (pkgsFor system).alejandra
+    );
+
+    nixosConfigurations = {
+      qhink = lib.nixosSystem {
+        system = "x86_64-linux";
+
+        specialArgs = { inherit inputs self; };
+
+        modules = [
+          ./hosts/qhink
+
+          # 拆分后的模块
+          ./modules/nix.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+
+              extraSpecialArgs = { inherit inputs self; };
+
+              users.${user} = import ./hosts/qhink/home.nix;
+            };
+          }
+        ];
+      };
     };
   };
 }

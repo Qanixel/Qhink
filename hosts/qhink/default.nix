@@ -31,7 +31,7 @@
   ];
 
   # 主机名
-  networking.hostName = "qhink";
+  networking.hostName = "Qhink";
 
   # 系统版本标记
   system.stateVersion = "25.05";
