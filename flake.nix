@@ -55,7 +55,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
 
-              extraSpecialArgs = { inherit inputs self; };
+              extraSpecialArgs = { inherit inputs self noctalia; };
 
               users.${user} = import ./hosts/qhink/home.nix;
             };
