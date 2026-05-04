@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 {
-  home-manager.users.drfoobar = {
+  # 修正用户名，建议通过变量或在外部定义，这里改为 qanix
+  home-manager.users.qanix = {
     # import the home manager module
     imports = [
       inputs.noctalia.homeModules.default
@@ -13,7 +14,7 @@
         # configure noctalia here
         bar = {
           density = "compact";
-          position = "right";
+          position = "top"; # Mac 风格：状态栏在顶部
           showCapsule = false;
           widgets = {
             left = [
@@ -53,7 +54,7 @@
         };
         colorSchemes.predefinedScheme = "Monochrome";
         general = {
-          avatarImage = "/home/drfoobar/.face";
+          avatarImage = "/home/qanix/.face";
           radiusRatio = 0.2;
         };
         location = {

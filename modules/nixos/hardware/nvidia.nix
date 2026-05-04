@@ -7,9 +7,9 @@
   hardware.nvidia = {
     # 5060 Ti 属于新架构，建议使用最新的生产分支或 Stable 驱动
     package = config.boot.kernelPackages.nvidiaPackages.stable;
-    
+
     # 对于 16 系列及以后的显卡，open 为 true 通常更稳定且性能更好
-    open = true; 
+    open = true;
 
     modesetting.enable = true;
 
