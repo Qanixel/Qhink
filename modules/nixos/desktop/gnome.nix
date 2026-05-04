@@ -1,14 +1,12 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # 桌面环境配置 (临时)
   services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
 
     dbus.enable = true;
-    gvfs.enable = true;                    # GNOME 虚拟文件系统（网络共享、文件操作等）
-    gnome.gnome-keyring.enable = true;     # GNOME 密钥环（Wi-Fi、SSH 密码、凭据缓存）
+    gvfs.enable = true; # GNOME 虚拟文件系统（网络共享、文件操作等）
+    gnome.gnome-keyring.enable = true; # GNOME 密钥环（Wi-Fi、SSH 密码、凭据缓存）
   };
 
   xdg.portal = {

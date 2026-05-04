@@ -16,7 +16,7 @@
         # configure noctalia here
         bar = {
           density = "compact";
-          position = "right";
+          position = "top"; # Mac 风格：状态栏在顶部
           showCapsule = false;
           widgets = {
             left = [
@@ -56,7 +56,7 @@
         };
         colorSchemes.predefinedScheme = "Monochrome";
         general = {
-          avatarImage = "/home/drfoobar/.face";
+          avatarImage = "/home/qanix/.face";
           radiusRatio = 0.2;
         };
         location = {

@@ -1,9 +1,7 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
-    
+
     settings = {
       theme = "catppuccin_mocha"; # 保持与 VSCode 和 Ghostty 一致
       editor = {
@@ -20,18 +18,18 @@
       };
       keys.normal = {
         "space"."f" = "file_picker"; # 类似 VSCode 的 Ctrl+P
-        "space"."w" = ":w";         # 快速保存
+        "space"."w" = ":w"; # 快速保存
       };
     };
-    
+
     # 语言服务器配置
     languages = {
       language = [
         {
           name = "nix";
           auto-format = true;
-          formatter = { command = "alejandra"; };
-          language-servers = [ "nixd" ];
+          formatter = {command = "alejandra";};
+          language-servers = ["nixd"];
         }
       ];
     };

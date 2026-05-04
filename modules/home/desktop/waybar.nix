@@ -1,28 +1,52 @@
-{ ... }:
-
-{
+{...}: {
   programs.waybar = {
     enable = true;
     settings = {
       mainBar = {
-        layer = "top"; position = "top"; height = 36;
-        margin-left = 8; margin-right = 8; margin-top = 4;
-        modules-left = [ "niri/workspaces" "niri/window" ];
-        modules-center = [ "clock" ];
-        modules-right = [ "cpu" "memory" "temperature" "pulseaudio" "network" "tray" "custom/notification" ];
-        "niri/workspaces" = { format = "{name}"; on-click = "activate"; };
-        "niri/window" = { format = "{title}"; max-length = 60; };
+        layer = "top";
+        position = "top";
+        height = 36;
+        margin-left = 8;
+        margin-right = 8;
+        margin-top = 4;
+        modules-left = ["niri/workspaces" "niri/window"];
+        modules-center = ["clock"];
+        modules-right = ["cpu" "memory" "temperature" "pulseaudio" "network" "tray" "custom/notification"];
+        "niri/workspaces" = {
+          format = "{name}";
+          on-click = "activate";
+        };
+        "niri/window" = {
+          format = "{title}";
+          max-length = 60;
+        };
         "clock" = {
           format = "{:%Y年%m月%d日  %H:%M}";
           tooltip-format = "<big>{:%Y年%m月}</big>\n<tt>{calendar}</tt>";
           locale = "zh_CN.UTF-8";
         };
-        "cpu" = { format = " {usage}%"; interval = 2; };
-        "memory" = { format = " {percentage}%"; interval = 10; };
-        "temperature" = { format = " {temperatureC}°C"; critical-threshold = 80; };
-        "pulseaudio" = { format = "{icon} {volume}%"; format-muted = " 静音"; on-click = "pavucontrol"; };
-        "network" = { format-wifi = " {essid}"; format-disconnected = "⚠ 断开"; };
-        "tray" = { spacing = 6; };
+        "cpu" = {
+          format = " {usage}%";
+          interval = 2;
+        };
+        "memory" = {
+          format = " {percentage}%";
+          interval = 10;
+        };
+        "temperature" = {
+          format = " {temperatureC}°C";
+          critical-threshold = 80;
+        };
+        "pulseaudio" = {
+          format = "{icon} {volume}%";
+          format-muted = " 静音";
+          on-click = "pavucontrol";
+        };
+        "network" = {
+          format-wifi = " {essid}";
+          format-disconnected = "⚠ 断开";
+        };
+        "tray" = {spacing = 6;};
       };
     };
     style = ''

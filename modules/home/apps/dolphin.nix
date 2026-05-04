@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # 确保安装了 Dolphin 及其必要的依赖
   home.packages = with pkgs; [
     kdePackages.dolphin

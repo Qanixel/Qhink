@@ -3,7 +3,7 @@
     enable = true;
     package = pkgs.vscode;
 
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       ms-ceintl.vscode-language-pack-zh-hans
 
       # 语言基础
@@ -25,7 +25,7 @@
       pkief.material-icon-theme
     ];
 
-    userSettings = {
+    profiles.default.userSettings = {
       # 1. 语言设置
       "locale" = "zh-cn";
 

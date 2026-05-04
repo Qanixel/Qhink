@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   services.pipewire = {
     enable = true;
     alsa = {
@@ -10,6 +8,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
 }
