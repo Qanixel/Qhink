@@ -26,29 +26,56 @@
     ];
 
     userSettings = {
+      # 1. 语言设置
       "locale" = "zh-cn";
-      "editor.formatOnSave" = true;
-      "workbench.colorTheme" = "Catppuccin Mocha";
-      "workbench.iconTheme" = "catppuccin-vsc-icons"; # 显式启用图标主题
 
-      # Nix IDE 核心配置
+      # 2. 界面与主题
+      "workbench.colorTheme" = "Catppuccin Mocha";
+      "workbench.iconTheme" = "catppuccin-vsc-icons";
+      "editor.semanticHighlighting.enabled" = true;
+      "workbench.settings.useSplitJSON" = true;
+      "files.autoSave" = "onFocusChange";
+      "editor.fontSize" = 14;
+      "editor.tabSize" = 2;
+      "editor.renderWhitespace" = "all"; # 显示空格，避免混用空格和制表符
+      "editor.wordWrap" = "on"; # 自动换行，不用左右滚动屏幕
+      "editor.formatOnSave" = true;
+
+      # --- 视觉美化 ---
+      "editor.cursorBlinking" = "expand"; # 很有质感的光标闪烁方式
+      "editor.cursorSmoothCaretAnimation" = "on";
+      "editor.bracketPairColorization.enabled" = true;
+      "editor.guides.bracketPairs" = "active";
+      "editor.smoothScrolling" = true;
+      "workbench.list.smoothScrolling" = true;
+      "terminal.integrated.smoothScrolling" = true;
+
+      # 3. Nix IDE & nixd 核心增强
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
-
       "nix.serverSettings" = {
         "nixd" = {
           "formatting" = {"command" = ["alejandra"];};
+          # 2026 推荐配置：让 nixd 能够实时显示 nixpkgs 的文档和选项
+          "options" = {
+            "nixos" = {
+              "expr" = "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.qhink.options";
+            };
+            "home-manager" = {
+              "expr" = "(builtins.getFlake \"/path/to/your/flake\").homeConfigurations.qanix.options";
+            };
+          };
         };
       };
 
-      # 针对 Nix 文件的默认格式化器
+      # 4. 针对 Nix 文件的行为
       "[nix]" = {
         "editor.defaultFormatter" = "jnoortheen.nix-ide";
         "editor.formatOnSave" = true;
+        "editor.tabSize" = 2;
+        "editor.insertSpaces" = true;
+        "editor.semanticHighlighting.enabled" = true;
       };
-
-      "workbench.settings.useSplitJSON" = true;
-      "editor.semanticHighlighting.enabled" = true;
     };
   };
 }
