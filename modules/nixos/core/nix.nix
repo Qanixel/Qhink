@@ -11,10 +11,12 @@
       substituters = [
         "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
         "https://niri.cachix.org"
+        "https://noctalia.cachix.org"
         "https://cache.nixos.org"
       ];
       trusted-public-keys = [
         "niri.cachix.org-1:Wv0OmO7PsuocRKzfx7LRyRRxdSAQQ1Ldx3X0/MRWXY0="
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       ];
 
