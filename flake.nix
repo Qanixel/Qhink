@@ -1,5 +1,5 @@
 {
-  description = "qhink 的模块化 NixOS 配置";
+  description = "Qhink flakes 配置";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,9 +13,15 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixConfig = {
+      extra-substituters = [ "https://noctalia.cachix.org" ];
+      extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+    };
+
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, noctalia, nixConfig, ... }:
   let
     lib = nixpkgs.lib;
     systems = [ "x86_64-linux" ];
@@ -40,10 +46,8 @@
         specialArgs = { inherit inputs self; };
 
         modules = [
-          ./hosts/qhink
+          ./hosts/qhink/default.nix
 
-          # 拆分后的模块
-          ./modules/nix.nix
 
           home-manager.nixosModules.home-manager
           {
