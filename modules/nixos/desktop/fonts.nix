@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   fonts = {
     packages = with pkgs; [
       # 符号与图标
@@ -52,7 +50,7 @@
           "Noto Serif"
           "Noto Color Emoji"
         ];
-        emoji = [ "Noto Color Emoji" ];
+        emoji = ["Noto Color Emoji"];
       };
 
       localConf = ''
@@ -80,7 +78,7 @@
             <test name="family" compare="eq"><string>sans-serif</string></test>
             <edit name="family" mode="prepend" binding="strong"><string>Noto Sans CJK KR</string></edit>
           </match>
-          
+
           <!-- 禁用位图字体以防止锯齿 -->
           <selectfont>
             <rejectfont><pattern><patelt name="scalable"><bool>false</bool></patelt></pattern></rejectfont>

@@ -1,12 +1,16 @@
-{ ... }:
-
-{
+{...}: {
   programs.git = {
     enable = true;
-    userName = "qanix";
-    userEmail = "qanix@qhink.local";
-    extraConfig = {
-      core = { editor = "hx"; pager = "delta"; autocrlf = "input"; };
+    settings = {
+      user = {
+        name = "qanix";
+        email = "qanix@qhink.local";
+      };
+      core = {
+        editor = "hx";
+        pager = "delta";
+        autocrlf = "input";
+      };
       init.defaultBranch = "main";
       pull.rebase = false;
       push.autoSetupRemote = true;

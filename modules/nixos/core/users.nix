@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   # TODO 用户配置是否有点冗余了？
   users.users.qanix = {
     isNormalUser = true;

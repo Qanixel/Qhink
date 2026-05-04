@@ -15,16 +15,17 @@
 │       └── hardware-configuration.nix # ⚠ 硬件扫描生成文件
 ├── modules/                  # 可复用功能模块
 │   ├── nixos/                # NixOS 系统级模块
+│   │   ├── default.nix       # 系统模块集合入口
 │   │   ├── core/             # 核心配置（Nix, Boot, Users, Env）
 │   │   ├── hardware/         # 硬件驱动（Nvidia, Audio, BT）
-│   │   ├── desktop/          # 桌面环境（Fonts）
+│   │   ├── desktop/          # 桌面环境（GNOME, Fonts）
 │   │   ├── i18n/             # 国际化（Locale, Input Method）
 │   │   └── services/         # 系统服务（Network, SSH）
 │   └── home/                 # Home Manager 用户级模块
+│       ├── default.nix       # 用户模块集合入口
 │       ├── core/             # 基础（Shell, Packages, XDG）
 │       ├── apps/             # 应用程序（VSCode, Ghostty, Git）
 │       └── desktop/          # 桌面应用（Waybar, Mako, Fuzzel）
-└── backup/                   # 旧配置备份
 ```
 
 ---
@@ -60,8 +61,8 @@ nixos-install --flake .#qhink
 ## 模块化说明
 
 - **解耦**：所有功能均拆分为独立文件。例如，如需更换显卡驱动，只需修改 `modules/nixos/hardware/nvidia.nix`。
-- **可维护性**：`hosts/qhink/default.nix` 集中管理该主机启用的所有模块。
-- **用户配置**：通过 `hosts/qhink/home.nix` 组织 Home Manager 模块，实现高度定制化。
+- **可维护性**：`hosts/qhink/default.nix` 只导入主机硬件配置与系统模块集合；具体模块清单由各目录的 `default.nix` 聚合。
+- **用户配置**：`hosts/qhink/home.nix` 导入 Home Manager 模块集合；新增或移除用户模块时优先调整 `modules/home/*/default.nix`。
 
 ---
 

@@ -1,5 +1,8 @@
-{ pkgs, inputs, ... }:
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   # 修正用户名，建议通过变量或在外部定义，这里改为 qanix
   home-manager.users.qanix = {
     # import the home manager module

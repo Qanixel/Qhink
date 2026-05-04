@@ -3,36 +3,13 @@
   pkgs,
   inputs,
   ...
-}:
-
-{
+}: {
   imports = [
     # 硬件配置（由系统生成）
     ./hardware-configuration.nix
 
-    # NixOS 核心模块
-    ../../modules/nixos/core/nix.nix
-    ../../modules/nixos/core/boot.nix
-    ../../modules/nixos/core/users.nix
-    ../../modules/nixos/core/environment.nix
-
-    # 硬件支持
-    ../../modules/nixos/hardware/nvidia.nix
-    ../../modules/nixos/hardware/audio.nix
-    ../../modules/nixos/hardware/bluetooth.nix
-
-    # 桌面环境与字体
-    ../../modules/nixos/desktop/fonts.nix
-    ../../modules/nixos/desktop/temporary.nix
-
-    # 国际化与输入法
-    ../../modules/nixos/i18n/locale.nix
-    ../../modules/nixos/i18n/input-method.nix
-
-    # 服务
-    ../../modules/nixos/services/networking.nix
-    ../../modules/nixos/services/ssh.nix
-    ../../modules/nixos/services/system-services.nix
+    # 可复用的 NixOS 模块集合
+    ../../modules/nixos
   ];
 
   # 主机名

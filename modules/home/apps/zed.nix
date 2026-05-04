@@ -1,11 +1,13 @@
-{ pkgs, lib, ... }:
-
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zed-editor = {
     enable = true;
 
     # Extensions to install (Home Manager handles the download)
-    extensions = [ "nix" "catppuccin" ];
+    extensions = ["nix" "catppuccin"];
 
     # This replaces xdg.configFile."zed/settings.json"
     userSettings = {
@@ -20,7 +22,7 @@
       format_on_save = "on";
       languages = {
         Nix = {
-          language_servers = [ "nixd" ];
+          language_servers = ["nixd"];
         };
       };
       vim_mode = false;

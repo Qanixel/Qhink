@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   programs.fuzzel = {
     enable = true;
     settings = {
@@ -22,7 +20,10 @@
         border = "89b4faff";
         match = "89b4faff";
       };
-      border = { width = 2; radius = 10; };
+      border = {
+        width = 2;
+        radius = 10;
+      };
     };
   };
 }
