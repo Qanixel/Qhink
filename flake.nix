@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, noctalia, ... }:
   let
     lib = nixpkgs.lib;
     systems = [ "x86_64-linux" ];
@@ -51,7 +51,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
 
-              extraSpecialArgs = { inherit inputs self; };
+              extraSpecialArgs = { inherit inputs self noctalia; };
 
               users.${user} = import ./hosts/qhink/home.nix;
             };
