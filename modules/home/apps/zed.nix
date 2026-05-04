@@ -1,26 +1,39 @@
 { pkgs, lib, ... }:
 
 {
-  home.packages = [ pkgs.zed-editor ];
+  programs.zed-editor = {
+    enable = true;
 
-  # Zed 的配置文件通常位于 ~/.config/zed/settings.json
-  # 我们通过 Nix 强制生成它
-  xdg.configFile."zed/settings.json".text = builtins.toJSON {
-    "theme" = "Catppuccin Mocha";
-    "ui_font_size" = 16;
-    "buffer_font_family" = "Maple Mono NF";
-    "buffer_font_size" = 14;
-    "terminal" = {
-      "font_family" = "Maple Mono NF";
-      "copy_on_select" = true;
-    };
-    "format_on_save" = "on";
-    "languages" = {
-      "Nix" = {
-        "language_servers" = [ "nixd" "..." ];
+    # Extensions to install (Home Manager handles the download)
+    extensions = [ "nix" "catppuccin" ];
+
+    # This replaces xdg.configFile."zed/settings.json"
+    userSettings = {
+      theme = "Catppuccin Mocha";
+      ui_font_size = 16;
+      buffer_font_family = "Maple Mono NF";
+      buffer_font_size = 14;
+      terminal = {
+        font_family = "Maple Mono NF";
+        copy_on_select = true;
       };
+      format_on_save = "on";
+      languages = {
+        Nix = {
+          language_servers = [ "nixd" ];
+        };
+      };
+      vim_mode = false;
     };
-    # 开启 Vim 模式 (如果你习惯的话)
-    "vim_mode" = true;
+
+    # Optional: Keybindings can also be managed here
+    userKeymaps = [
+      {
+        context = "Editor";
+        bindings = {
+          "ctrl-alt-x" = "editor::CheckSelection";
+        };
+      }
+    ];
   };
 }
