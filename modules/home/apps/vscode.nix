@@ -11,9 +11,6 @@
       
       # 语言基础
       ms-ceintl.vscode-language-pack-zh-hans
-      ms-python.python
-      ms-python.vscode-pylance
-      rust-lang.rust-analyzer
       jnoortheen.nix-ide
       
       # 前端与格式化
@@ -40,7 +37,7 @@
       # 主题与外观
       "workbench.colorTheme" = "Catppuccin Mocha";
       "workbench.iconTheme" = "catppuccin-mocha";
-      "editor.fontFamily" = "'Maple Mono NF', 'Noto Sans CJK SC', monospace";
+      "editor.fontFamily" = "'Maple Mono CN', 'Noto Sans CJK SC', monospace";
       "editor.fontSize" = 14;
       "editor.lineHeight" = 1.6;
       "editor.fontLigatures" = true;
@@ -54,21 +51,25 @@
       
       # 针对不同语言的格式化器优化
       "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      "[nix]"."editor.defaultFormatter" = "jnoortheen.nix-ide";
-      "[rust-analyzer]"."editor.defaultFormatter" = "rust-lang.rust-analyzer";
       
       # Nix IDE 特定配置 (推荐配合 nixd 或 nil 使用)
       "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nixd"; # 或 "nil"
-      
+      "nix.serverPath" = "nixd"; # 或 "nil"s
+            
+      # 新增以下部分来修复错误：
+        "nix.serverSettings" = {
+          "nixd" = {
+            "formatting" = {
+              "command" = [ "nixpkgs-fmt" ]; # 或者 "nixfmt"
+            };
+          };
+      };
+
       # 终端
       "terminal.external.linuxExec" = "ghostty";
-      "terminal.integrated.fontFamily" = "Maple Mono NF";
+      "terminal.integrated.fontFamily" = "Maple Mono CN";
       "terminal.integrated.cursorStyle" = "line";
       
-      # # 安全与更新
-      # "extensions.autoUpdate" = true; # Nix 管理时应关闭自动更新
-      # "update.mode" = "none";
     };
   };
 }
